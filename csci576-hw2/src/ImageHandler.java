@@ -40,12 +40,13 @@ public class ImageHandler {
 
 				byte a = 0;
 				byte ch = bytes[ind];
+				
 				//byte gr = bytes[ind + height * width];
 				//byte bb = bytes[ind + height * width * 2];
 
 				int pix = 0xff000000 | ((ch & 0xff) << 16)
 						| ((ch & 0xff) << 8) | (ch & 0xff);
-
+				
 				// int pix = ((a << 24) + (r << 16) + (g << 8) + b);
 				img.setRGB(x, y, pix);
 				ind++;

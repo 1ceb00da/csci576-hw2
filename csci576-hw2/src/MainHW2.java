@@ -1,7 +1,16 @@
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 
 
 public class MainHW2 {
@@ -18,6 +27,22 @@ public class MainHW2 {
 		 * ------
 		 * Get Vector representation of image
 		 */
+		
+		
+		Byte left, right;
+		Pair<Byte, Byte> vector;
+		ArrayList<Pair<Byte, Byte>> imageVector = new ArrayList<Pair<Byte,Byte>>();
+		
+		for (int i = 0; i < bytes.length; i += 2) {
+			left = new Byte(bytes[i]);
+			right = new Byte(bytes[i+1]);
+			vector = new ImmutablePair<Byte, Byte>(left, right);
+			imageVector.add(vector);
+		}
+		
+		System.out.println(Arrays.toString(imageVector.toArray()));
+		
+		System.exit(1);
 		
 		/* END of step1 */
 		
