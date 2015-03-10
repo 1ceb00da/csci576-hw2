@@ -70,7 +70,7 @@ public class MainHW2 {
 		}
 		List<Pair<Byte,Byte>> means = new ArrayList<Pair<Byte,Byte>>(meansSet);
 		
-		System.out.println(means);
+		System.out.println("Step2 fin-" + means);
 		
 /*		List<Byte> l = new ArrayList<Byte>();
 		List<Byte> r = new ArrayList<Byte>();
@@ -83,16 +83,23 @@ public class MainHW2 {
 */		
 		/* END of step2 */
 		
-		
-		
+				
 		int iter = 0;
+		int closestMeanIndex;
+		
+		int[] cluster = new int[imageVector.size()];
+		Pair<Byte,Byte> vec;
+		
 		while (iter < 50 ) {
 			/* TODO Step 3 **** K-MEANS algorithm step 1 ****
 			 * ------
 			 * Find closest centroids
 			 */
-			for (Pair<Byte,Byte> vec : imageVector) {
-				KMeans.findClosestMean(vec, means);
+			
+			for (int i = 0; i < imageVector.size(); i++) {
+				vec = imageVector.get(i);
+				closestMeanIndex = KMeans.findClosestMean(vec, means);
+				cluster[i] = closestMeanIndex;
 			}
 			
 			/* TODO Step 4 **** K-MEANS algorithm step 2****
@@ -100,11 +107,13 @@ public class MainHW2 {
 			 * Compute new centroids
 			 */
 			
-			KMeans.computeNewMeans();
+			means = KMeans.computeNewMeans(means, cluster, imageVector);
 			
 			iter++;
 		}
 		
+		System.out.println("Done with step 4");
+		System.out.println(means);
 		System.exit(1);
 		
 		
