@@ -37,6 +37,69 @@ public class MainHW2 {
 		}
 		
 		
+		byte x1;
+		byte y1;
+		byte x2;
+		byte y2;
+		Pair<Byte, Byte> p1,p2;
+
+		//case
+		x1  = 1; x2 = 2;
+		y1  = 1; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 2;
+		y1  = 1; y2 = 1;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 2;
+		y1  = 3; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 1;
+		y1  = 1; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 1;
+		y1  = 1; y2 = 1;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 1;
+		y1  = 3; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 4; x2 = 2;
+		y1  = 1; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 4; x2 = 2;
+		y1  = 2; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 4; x2 = 2;
+		y1  = 50; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		
+		System.exit(1);
+		
 		/* TODO Step 1
 		 * ------
 		 * Get Vector representation of image
@@ -52,9 +115,11 @@ public class MainHW2 {
 			vector = new ImmutablePair<Byte, Byte>(left, right);
 			imageVector.add(vector);
 		}
-		
-		//System.out.println(Arrays.toString(imageVector.toArray()));
-		
+
+		System.out.println(Arrays.toString(imageVector.toArray()));
+
+
+
 		/* END of step1 */
 		
 		/* TODO Step 2
@@ -114,7 +179,6 @@ public class MainHW2 {
 		
 		System.out.println("Done with step 4");
 		System.out.println(means);
-		System.exit(1);
 		
 		
 		/* TODO Step 5
