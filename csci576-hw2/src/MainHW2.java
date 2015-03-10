@@ -92,7 +92,7 @@ public class MainHW2 {
 			 * Find closest centroids
 			 */
 			for (Pair<Byte,Byte> vec : imageVector) {
-				findClosestMean(vec, means);
+				KMeans.findClosestMean(vec, means);
 			}
 			
 			/* TODO Step 4 **** K-MEANS algorithm step 2****
@@ -100,7 +100,7 @@ public class MainHW2 {
 			 * Compute new centroids
 			 */
 			
-			computeNewMeans();
+			KMeans.computeNewMeans();
 			
 			iter++;
 		}
