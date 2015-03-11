@@ -10,7 +10,7 @@ public class KMeans {
 	public static int meanDiff(List<Vector<Integer, Integer>> oldMeans,
 			List<Vector<Integer, Integer>> newMeans) {
 
-		System.out.println("\n in mean diff fn");
+		//System.out.println("\n in mean diff fn");
 		//System.out.println("oldMeans = " + oldMeans);
 		//System.out.println("means = " + newMeans);
 
@@ -25,7 +25,7 @@ public class KMeans {
 			newMean = newMeans.get(i);
 			diffs.add(Vector.difference(oldMean, newMean));
 		}
-		System.out.println("diffs are " + diffs);
+		//System.out.println("diffs are " + diffs);
 		
 		int d;
 		for (Vector<Integer, Integer> diff : diffs) {
@@ -39,7 +39,7 @@ public class KMeans {
 			
 		}
 		
-		System.out.println("SumofDiffs are " + sumOfDiffs);
+		//System.out.println("SumofDiffs are " + sumOfDiffs);
 		
 		
 		return sumOfDiffs;

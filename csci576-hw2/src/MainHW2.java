@@ -35,6 +35,9 @@ public class MainHW2 {
 		String filename = "Image1.raw";
 		String NString = "4";
 		
+		filename = args[0];
+		NString = args[1];
+		
 		int N = Integer.parseInt(NString);
 		byte[] bytes = ImageHandler.readImageFromFile(filename);
 		BufferedImage originalImg = ImageHandler.toBufferedImage(bytes, 352, 288, BufferedImage.TYPE_INT_RGB);
@@ -53,7 +56,7 @@ public class MainHW2 {
 			}
 		}
 		
-		/* TODO Step 1
+		/* Step 1
 		 * ------
 		 * Get Vector representation of image
 		 */
@@ -86,13 +89,13 @@ public class MainHW2 {
 //		System.exit(1);
 //		////////////
 		
-		System.out.println("Step1 fin:- " + Arrays.toString(imageVector.toArray()));
+		System.out.println("Step1 fin " ); //+ Arrays.toString(imageVector.toArray()));
 
 
 
 		/* END of step1 */
 		
-		/* TODO Step 2
+		/* Step 2
 		 * ------
 		 * Init N random px1,px2 means or centroids or codewords
 		 */
@@ -105,7 +108,7 @@ public class MainHW2 {
 		}
 		List<Vector<Integer,Integer>> means = new ArrayList<Vector<Integer,Integer>>(meansSet);
 		
-		System.out.println("\nStep2 fin:-\n" + means);
+		System.out.println("Step2 fin ");// + means);
 		////////////////
 		// initial means as arrays for matlab plotting
 		//
@@ -117,8 +120,8 @@ public class MainHW2 {
 			myi[i] = means.get(i).getRight().intValue();
 			
 		}
-		System.out.println("init mx " + Arrays.toString(mxi));
-		System.out.println("init my " + Arrays.toString(myi));
+		//System.out.println("init mx " + Arrays.toString(mxi));
+		//System.out.println("init my " + Arrays.toString(myi));
 		
 		
 		///////////////
@@ -138,14 +141,14 @@ public class MainHW2 {
 			oldMeans.add(Vector.of(0, 0));
 		}
 		
-		System.out.println(means);
-		System.out.println(oldMeans);
+		//System.out.println(means);
+		//System.out.println(oldMeans);
 		
 		
 		
 		while (KMeans.meanDiff(oldMeans, means) > 0 && iter < 500) {			
 			
-			/* TODO Step 3 **** K-MEANS algorithm step 1 ****
+			/* Step 3 **** K-MEANS algorithm step 1 ****
 			 * ------
 			 * Find closest centroids
 			 */
@@ -159,7 +162,7 @@ public class MainHW2 {
 			//System.out.println("\nStep3 fin:-");
 			//System.out.println(Arrays.toString(Arrays.copyOfRange(cluster, 1090, 1100)));
 
-			/* TODO Step 4 **** K-MEANS algorithm step 2****
+			/* Step 4 **** K-MEANS algorithm step 2****
 			 * ------
 			 * Compute new centroids
 			 */
@@ -168,8 +171,8 @@ public class MainHW2 {
 			iter++;
 		}
 		
-		System.out.println("\nSteps 3&4 fin in " + iter + " iterations:-");
-		System.out.println(means);
+		System.out.println("Steps 3&4 fin in " + iter + " iterations:-");
+		//System.out.println(means);
 		
 		////////////////
 		// means as arrays for matlab plotting
@@ -182,8 +185,8 @@ public class MainHW2 {
 			my[i] = means.get(i).getRight().intValue();
 			
 		}
-		System.out.println("final mx" + Arrays.toString(mx));
-		System.out.println("final my" + Arrays.toString(my));
+		//System.out.println("final mx" + Arrays.toString(mx));
+		//System.out.println("final my" + Arrays.toString(my));
 		
 		
 		///////////////
@@ -192,13 +195,12 @@ public class MainHW2 {
 
 
 		
-		/* TODO Step 5
+		/* Step 5
 		 * ------
 		 * Quantize input vectors to produce output image
 		 * and display
 		 */
 		
-		System.out.println();
 		
 		bytes = new byte[bytes.length];
 		//approach 1
