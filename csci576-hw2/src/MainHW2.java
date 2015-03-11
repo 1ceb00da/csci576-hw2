@@ -133,17 +133,17 @@ public class MainHW2 {
 		Vector<Integer, Integer> vec;
 		
 		// newmeans initlaization
-		List<Vector<Integer, Integer>> newMeans = new ArrayList<Vector<Integer, Integer>>();
+		List<Vector<Integer, Integer>> oldMeans = new ArrayList<Vector<Integer, Integer>>();
 		for (int i = 0; i < means.size(); i++) {
-			newMeans.add(Vector.of(0, 0));
+			oldMeans.add(Vector.of(0, 0));
 		}
 		
 		System.out.println(means);
-		System.out.println(newMeans);
+		System.out.println(oldMeans);
 		
 		
 		
-		while (KMeans.meanDiff(means, newMeans) > 0  || iter < 100) {
+		while (KMeans.meanDiff(oldMeans, means) > 0 && iter < 500) {			
 			
 			/* TODO Step 3 **** K-MEANS algorithm step 1 ****
 			 * ------
@@ -163,13 +163,12 @@ public class MainHW2 {
 			 * ------
 			 * Compute new centroids
 			 */
-			
-			newMeans = KMeans.computeNewMeans(means, cluster, imageVector);
-			
+			oldMeans = new ArrayList<Vector<Integer,Integer>>(means);
+			means = KMeans.computeNewMeans(means, cluster, imageVector);
 			iter++;
 		}
 		
-		System.out.println("\nSteps 3&4 fin:-");
+		System.out.println("\nSteps 3&4 fin in " + iter + " iterations:-");
 		System.out.println(means);
 		
 		////////////////

@@ -11,21 +11,38 @@ public class KMeans {
 			List<Vector<Integer, Integer>> newMeans) {
 
 		System.out.println("\n in mean diff fn");
-		System.out.println(oldMeans);
-		System.out.println(newMeans);
-		
+		//System.out.println("oldMeans = " + oldMeans);
+		//System.out.println("means = " + newMeans);
+
 		Vector<Integer, Integer> oldMean, newMean;
 		List<Vector<Integer, Integer>> diffs = new ArrayList<Vector<Integer, Integer>>();
+		
+		
+		int sumOfDiffs = 0;
 		
 		for (int i = 0; i < newMeans.size(); i++) {
 			oldMean = oldMeans.get(i);
 			newMean = newMeans.get(i);
 			diffs.add(Vector.difference(oldMean, newMean));
 		}
-		System.out.println(diffs + " are diffs");
+		System.out.println("diffs are " + diffs);
+		
+		int d;
+		for (Vector<Integer, Integer> diff : diffs) {
+			
+			// approach 1
+			d = diff.getLeft().intValue() - diff.getRight().intValue();
+			//sumOfDiffs += d * d; 
+			
+			// approach 2
+			sumOfDiffs += diff.getLeft().intValue() * diff.getLeft().intValue() + diff.getRight().intValue() * diff.getRight().intValue();
+			
+		}
+		
+		System.out.println("SumofDiffs are " + sumOfDiffs);
 		
 		
-		return 0;
+		return sumOfDiffs;
 	}
 
 	public static int findClosestMean(Vector<Integer, Integer> vec,
