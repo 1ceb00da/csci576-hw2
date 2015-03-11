@@ -1,8 +1,5 @@
 package edu.usc.adhulipa.DataStructs;
 
-import org.apache.commons.lang3.builder.CompareToBuilder;
-import org.apache.commons.lang3.tuple.ImmutablePair;
-
 public class ImmutableVector<L, R> extends Vector<L, R> {
     
 	/** Left object */
@@ -22,35 +19,11 @@ public class ImmutableVector<L, R> extends Vector<L, R> {
 
 	@Override
 	public L getLeft() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.left;
 	}
 
 	@Override
 	public R getRight() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.right;
 	}
-	
-	@Override
-    public int compareTo(final Vector<L, R> other) {
-	
-		L x1 = this.getLeft();
-		R y1 = this.getRight();
-		
-		L x2 = other.getLeft();
-		R y2 = other.getRight();
-		
-		if (!x1.equals(x2)) {
-			return x1.hashCode() - x2.hashCode();
-		}
-		else if (!y1.equals(y2)) {
-			return y1.hashCode() - y2.hashCode();
-		}
-		else
-			return 0;
-	
-	}
-
-
 }

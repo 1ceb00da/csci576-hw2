@@ -1,42 +1,5 @@
 package edu.usc.adhulipa.DataStructs;
-/*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
-import java.util.Map;
-
-import org.apache.commons.lang3.builder.CompareToBuilder;
-
-/**
- * <p>A pair consisting of two elements.</p>
- * 
- * <p>This class is an abstract implementation defining the basic API.
- * It refers to the elements as 'left' and 'right'. It also implements the
- * {@code Map.Entry} interface where the key is 'left' and the value is 'right'.</p>
- * 
- * <p>Subclass implementations may be mutable or immutable.
- * However, there is no restriction on the type of the stored objects that may be stored.
- * If mutable objects are stored in the pair, then the pair itself effectively becomes mutable.</p>
- *
- * @param <L> the left element type
- * @param <R> the right element type
- *
- * @since Lang 3.0
- * @version $Id: Pair.java 1557584 2014-01-12 18:26:49Z britter $
- */
 public abstract class Vector<L, R> implements Comparable<Vector<L, R>> {
 
     /**
@@ -94,8 +57,24 @@ public abstract class Vector<L, R> implements Comparable<Vector<L, R>> {
      */
     @Override
     public int compareTo(final Vector<L, R> other) {
-      return new CompareToBuilder().append(getLeft(), other.getLeft())
-              .append(getRight(), other.getRight()).toComparison();
+    	L x1, x2;
+    	R y1, y2;
+    	
+    	x1 = this.getLeft();
+    	x2 = other.getLeft();
+    	
+    	y1 = this.getRight();
+    	y2 = other.getRight();
+    	
+    	if ( ! x1.equals(x2)) {
+    		return x1.hashCode() - x2.hashCode();
+    	}
+    	else if ( ! y1.equals(y2)) {
+    		return y1.hashCode() - y2.hashCode();
+    	}
+    	else {
+    		return 0;
+    	}
     }
 
     /**

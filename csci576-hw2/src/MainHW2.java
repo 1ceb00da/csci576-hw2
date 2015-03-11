@@ -11,13 +11,29 @@ import javax.swing.JLabel;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
+import edu.usc.adhulipa.DataStructs.Vector;
+
 
 public class MainHW2 {
 
+	private static void TEMPORARY_TEST_IF_YOU_SEE_THIS_IN_SUBMISSION_PLEASE_DELETE_THIS_LINE() {
+		
+		pairCompareToTest();
+		vectorCompareToTest();		
+	}
+
 	public static void main(String args[]) {
+		
+		
+		
+		TEMPORARY_TEST_IF_YOU_SEE_THIS_IN_SUBMISSION_PLEASE_DELETE_THIS_LINE();
+		System.exit(1);
+
+		
 		
 		String filename = "Image1.raw";
 		String NString = "8";
+		
 		int N = Integer.parseInt(NString);
 		byte[] bytes = ImageHandler.readImageFromFile(filename);
 		BufferedImage originalImg = ImageHandler.toBufferedImage(bytes, 352, 288, BufferedImage.TYPE_INT_RGB);
@@ -35,70 +51,6 @@ public class MainHW2 {
 				allCodes.add(new ImmutablePair<Byte, Byte>(new Integer(i).byteValue(), new Integer(j).byteValue()));
 			}
 		}
-		
-		
-		byte x1;
-		byte y1;
-		byte x2;
-		byte y2;
-		Pair<Byte, Byte> p1,p2;
-
-		//case
-		x1  = 1; x2 = 2;
-		y1  = 1; y2 = 2;
-		p1 = Pair.of(x1, y1);
-		p2 = Pair.of(x2, y2);
-		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
-		//case
-		x1  = 1; x2 = 2;
-		y1  = 1; y2 = 1;
-		p1 = Pair.of(x1, y1);
-		p2 = Pair.of(x2, y2);
-		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
-		//case
-		x1  = 1; x2 = 2;
-		y1  = 3; y2 = 2;
-		p1 = Pair.of(x1, y1);
-		p2 = Pair.of(x2, y2);
-		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
-		//case
-		x1  = 1; x2 = 1;
-		y1  = 1; y2 = 2;
-		p1 = Pair.of(x1, y1);
-		p2 = Pair.of(x2, y2);
-		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
-		//case
-		x1  = 1; x2 = 1;
-		y1  = 1; y2 = 1;
-		p1 = Pair.of(x1, y1);
-		p2 = Pair.of(x2, y2);
-		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
-		//case
-		x1  = 1; x2 = 1;
-		y1  = 3; y2 = 2;
-		p1 = Pair.of(x1, y1);
-		p2 = Pair.of(x2, y2);
-		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
-		//case
-		x1  = 4; x2 = 2;
-		y1  = 1; y2 = 2;
-		p1 = Pair.of(x1, y1);
-		p2 = Pair.of(x2, y2);
-		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
-		//case
-		x1  = 4; x2 = 2;
-		y1  = 2; y2 = 2;
-		p1 = Pair.of(x1, y1);
-		p2 = Pair.of(x2, y2);
-		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
-		//case
-		x1  = 4; x2 = 2;
-		y1  = 50; y2 = 2;
-		p1 = Pair.of(x1, y1);
-		p2 = Pair.of(x2, y2);
-		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
-		
-		System.exit(1);
 		
 		/* TODO Step 1
 		 * ------
@@ -191,6 +143,138 @@ public class MainHW2 {
 		frame.addImage(new JLabel(new ImageIcon(originalImg)));
 		frame.addImage(new JLabel(new ImageIcon(processedImg)));
 		frame.setVisible(true);
+
+		
+	}
+
+	private static void vectorCompareToTest() {
+		System.out.println("Vec test");
+		byte x1;
+		byte y1;
+		byte x2;
+		byte y2;
+		Vector<Byte, Byte> p1,p2;
+
+		//case
+		x1  = 1; x2 = 2;
+		y1  = 1; y2 = 2;
+		p1 = Vector.of(x1, y1);
+		p2 = Vector.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 2;
+		y1  = 1; y2 = 1;
+		p1 = Vector.of(x1, y1);
+		p2 = Vector.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 2;
+		y1  = 3; y2 = 2;
+		p1 = Vector.of(x1, y1);
+		p2 = Vector.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 1;
+		y1  = 1; y2 = 2;
+		p1 = Vector.of(x1, y1);
+		p2 = Vector.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 1;
+		y1  = 1; y2 = 1;
+		p1 = Vector.of(x1, y1);
+		p2 = Vector.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 1;
+		y1  = 3; y2 = 2;
+		p1 = Vector.of(x1, y1);
+		p2 = Vector.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 4; x2 = 2;
+		y1  = 1; y2 = 2;
+		p1 = Vector.of(x1, y1);
+		p2 = Vector.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 4; x2 = 2;
+		y1  = 2; y2 = 2;
+		p1 = Vector.of(x1, y1);
+		p2 = Vector.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 4; x2 = 2;
+		y1  = 50; y2 = 2;
+		p1 = Vector.of(x1, y1);
+		p2 = Vector.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		
+	}
+
+	private static void pairCompareToTest() {
+		System.out.println("Pair test");
+		byte x1;
+		byte y1;
+		byte x2;
+		byte y2;
+		Pair<Byte, Byte> p1,p2;
+
+		//case
+		x1  = 1; x2 = 2;
+		y1  = 1; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 2;
+		y1  = 1; y2 = 1;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 2;
+		y1  = 3; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 1;
+		y1  = 1; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 1;
+		y1  = 1; y2 = 1;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 1; x2 = 1;
+		y1  = 3; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 4; x2 = 2;
+		y1  = 1; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 4; x2 = 2;
+		y1  = 2; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		//case
+		x1  = 4; x2 = 2;
+		y1  = 50; y2 = 2;
+		p1 = Pair.of(x1, y1);
+		p2 = Pair.of(x2, y2);
+		System.out.println(p1 + "-" + p2 + " = " +p1.compareTo(p2));
+		
 
 		
 	}
