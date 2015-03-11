@@ -30,8 +30,8 @@ public class MainHW2 {
 
 		
 		
-		String filename = "Image4.raw";
-		String NString = "4";
+		String filename = "Image1.raw";
+		String NString = "8";
 		
 		int N = Integer.parseInt(NString);
 		byte[] bytes = ImageHandler.readImageFromFile(filename);
