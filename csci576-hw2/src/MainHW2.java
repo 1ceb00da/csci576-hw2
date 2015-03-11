@@ -230,7 +230,6 @@ public class MainHW2 {
 		frame.addImage(new JLabel(new ImageIcon(originalImg)));
 		frame.addImage(new JLabel(new ImageIcon(processedImg)));
 		frame.setVisible(true);
-
 		
 	}
 
