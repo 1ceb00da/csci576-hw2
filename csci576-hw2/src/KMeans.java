@@ -83,10 +83,8 @@ public class KMeans {
 			
 			for (int i = 0; i < cluster.length; i++) {
 				if (cluster[i] == k) {
-					
 					sumLeft = sumLeft + imageVector.get(i).getLeft().intValue();
 					sumRight = sumRight + imageVector.get(i).getRight().intValue();
-					
 					count++;
 				}
 			}
