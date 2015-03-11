@@ -88,6 +88,7 @@ public class KMeans {
 					count++;
 				}
 			}
+			
 //			System.out.println("sumleft " + sumLeft);
 //			System.out.println("sumrigth " + sumRight);
 //			System.out.println("count " + count);
