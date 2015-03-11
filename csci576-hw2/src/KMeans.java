@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import edu.usc.adhulipa.DataStructs.Vector;
-
 
 public class KMeans {
 

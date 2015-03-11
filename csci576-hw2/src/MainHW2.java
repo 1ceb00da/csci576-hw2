@@ -12,8 +12,6 @@ import javax.swing.JLabel;
 
 
 
-import edu.usc.adhulipa.DataStructs.ImmutableVector;
-import edu.usc.adhulipa.DataStructs.Vector;
 
 
 public class MainHW2 {

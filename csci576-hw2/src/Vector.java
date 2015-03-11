@@ -1,4 +1,4 @@
-package edu.usc.adhulipa.DataStructs;
+
 
 public abstract class Vector<L, R> implements Comparable<Vector<L, R>> {
 
