@@ -7,26 +7,6 @@ import edu.usc.adhulipa.DataStructs.Vector;
 
 public class KMeans {
 
-	public static int meanDiff(List<Vector<Integer, Integer>> oldMeans,
-			List<Vector<Integer, Integer>> newMeans) {
-
-		System.out.println("\n in mean diff fn");
-		System.out.println(oldMeans);
-		System.out.println(newMeans);
-		
-		Vector<Integer, Integer> oldMean, newMean;
-		List<Vector<Integer, Integer>> diffs = new ArrayList<Vector<Integer, Integer>>();
-		
-		for (int i = 0; i < newMeans.size(); i++) {
-			oldMean = oldMeans.get(i);
-			newMean = newMeans.get(i);
-			diffs.add(Vector.difference(oldMean, newMean));
-		}
-		System.out.println(diffs + " are diffs");
-		
-		
-		return 0;
-	}
 
 	public static int findClosestMean(Vector<Integer, Integer> vec,
 			List<Vector<Integer, Integer>> means) {
@@ -55,10 +35,10 @@ public class KMeans {
 		
 		
 		double count;
-		List<Vector<Integer, Integer>> newMeans = new ArrayList<Vector<Integer, Integer>>(means);
-
+		
 
 		for (int k = 0 ; k < means.size(); k++) {
+			Byte Zero = new Integer(0).byteValue();
 			count = 0;
 			
 			int sumLeft = 0;
@@ -81,10 +61,10 @@ public class KMeans {
 			
 			Vector<Integer, Integer> newMean = Vector.of(new Double(sumLeft/count).intValue(), new Double(sumRight/count).intValue());
 			
-			newMeans.set(k, newMean);
+			means.set(k, newMean);
 		}
 		
-		return newMeans;		
+		return means;		
 	}
 
 	private static double distance(Vector<Integer, Integer> mean, Vector<Integer, Integer> vec) {

@@ -10,8 +10,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 
-
-
 import edu.usc.adhulipa.DataStructs.ImmutableVector;
 import edu.usc.adhulipa.DataStructs.Vector;
 
@@ -33,7 +31,7 @@ public class MainHW2 {
 		
 		
 		String filename = "Image1.raw";
-		String NString = "4";
+		String NString = "16";
 		
 		int N = Integer.parseInt(NString);
 		byte[] bytes = ImageHandler.readImageFromFile(filename);
@@ -132,19 +130,7 @@ public class MainHW2 {
 		int[] cluster = new int[imageVector.size()];
 		Vector<Integer, Integer> vec;
 		
-		// newmeans initlaization
-		List<Vector<Integer, Integer>> newMeans = new ArrayList<Vector<Integer, Integer>>();
-		for (int i = 0; i < means.size(); i++) {
-			newMeans.add(Vector.of(0, 0));
-		}
-		
-		System.out.println(means);
-		System.out.println(newMeans);
-		
-		
-		
-		while (KMeans.meanDiff(means, newMeans) > 0  || iter < 100) {
-			
+		while (iter < 100 ) {
 			/* TODO Step 3 **** K-MEANS algorithm step 1 ****
 			 * ------
 			 * Find closest centroids
@@ -164,7 +150,7 @@ public class MainHW2 {
 			 * Compute new centroids
 			 */
 			
-			newMeans = KMeans.computeNewMeans(means, cluster, imageVector);
+			means = KMeans.computeNewMeans(means, cluster, imageVector);
 			
 			iter++;
 		}
@@ -234,7 +220,6 @@ public class MainHW2 {
 
 		
 	}
-
 
 	private static void vectorCompareToTest() {
 		System.out.println("Vec test");

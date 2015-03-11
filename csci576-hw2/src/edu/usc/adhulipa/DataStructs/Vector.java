@@ -133,19 +133,4 @@ public abstract class Vector<L, R> implements Comparable<Vector<L, R>> {
         return String.format(format, getLeft(), getRight());
     }
 
-	public static Vector<Integer, Integer> difference(
-			Vector<Integer, Integer> subtrahend, Vector<Integer, Integer> minuend) {
-		
-		int x1, y1;
-		int x2, y2;
-		
-		x1 = subtrahend.getLeft();
-		y1 = subtrahend.getRight();
-		
-		x2 = minuend.getLeft();
-		y2 = minuend.getRight();
-				
-		return Vector.of(x1-x2, y1-y2);
-	}
-
 }
