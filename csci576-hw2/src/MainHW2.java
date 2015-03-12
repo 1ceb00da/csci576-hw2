@@ -11,12 +11,15 @@ public class MainHW2 {
 
 	public static void main(String args[]) {
 		
-		String filename = "Image1.raw";
-		String NString = "32";
+		String filename;
+		String NString;
 
 		filename = args[0];
 		NString = args[1];
 
+		//filename = "Image1.raw";
+		//NString = "100";
+		
 		int N = Integer.parseInt(NString);
 		byte[] bytes = ImageHandler.readImageFromFile(filename);
 		BufferedImage originalImg = ImageHandler.toBufferedImage(bytes, 352,
@@ -67,10 +70,8 @@ public class MainHW2 {
 		List<Vector<Integer, Integer>> means = new ArrayList<Vector<Integer, Integer>>(
 				meansSet);
 
-		System.out.println("Step2 fin ");// + means);
-		// //////////////
-		// initial means as arrays for matlab plotting
-		//
+		System.out.println("Step2 fin ");
+		
 		int[] mxi = new int[means.size()];
 		int[] myi = new int[means.size()];
 
@@ -79,11 +80,7 @@ public class MainHW2 {
 			myi[i] = means.get(i).getRight().intValue();
 
 		}
-		// System.out.println("init mx " + Arrays.toString(mxi));
-		// System.out.println("init my " + Arrays.toString(myi));
-
-		// /////////////
-
+		
 		/* END of step2 */
 
 		int iter = 0;
@@ -98,10 +95,8 @@ public class MainHW2 {
 			oldMeans.add(Vector.of(0, 0));
 		}
 
-		// System.out.println(means);
-		// System.out.println(oldMeans);
-
-		while (KMeans.meanDiff(oldMeans, means) > 0 && iter < 500) {
+		System.out.println("Steps 3 & 4 beginning. This can take a while if N is large");
+		while (KMeans.meanDiff(oldMeans, means) > 0) {
 
 			/*
 			 * Step 3 **** K-MEANS algorithm step 1 **** ------ Find closest
@@ -113,11 +108,7 @@ public class MainHW2 {
 				closestMeanIndex = KMeans.findClosestMean(vec, means);
 				cluster[i] = closestMeanIndex;
 			}
-
-			// System.out.println("\nStep3 fin:-");
-			// System.out.println(Arrays.toString(Arrays.copyOfRange(cluster,
-			// 1090, 1100)));
-
+			
 			/*
 			 * Step 4 **** K-MEANS algorithm step 2**** ------ Compute new
 			 * centroids
@@ -128,11 +119,7 @@ public class MainHW2 {
 		}
 
 		System.out.println("Steps 3&4 fin in " + iter + " iterations:-");
-		// System.out.println(means);
 
-		// //////////////
-		// means as arrays for matlab plotting
-		//
 		int[] mx = new int[means.size()];
 		int[] my = new int[means.size()];
 
@@ -150,7 +137,7 @@ public class MainHW2 {
 		 */
 
 		bytes = new byte[bytes.length];
-		// approach 1
+
 		for (int i = 0; i < imageVector.size(); i += 1) {
 
 			Vector<Integer, Integer> code = means.get(cluster[i]);
